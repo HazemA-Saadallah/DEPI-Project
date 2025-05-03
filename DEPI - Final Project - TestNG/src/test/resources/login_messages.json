@@ -1,0 +1,4 @@
+{
+  "missing_credentials_error": "Please enter a username and password.",
+  "wrong_credentials_error": "The entered username or password is wrong."
+}

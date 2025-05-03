@@ -1,0 +1,22 @@
+{
+  "missing_first_name_error": "First name is required.",
+  "missing_last_name_error": "Last name is required.",
+  "missing_address_error": "Address is required.",
+  "missing_city_error": "City is required.",
+  "missing_state_error": "State is required.",
+  "missing_zip_code_error": "Zip Code is required.",
+  "missing_phone_number_error": "Phone Number is required.",
+  "missing_ssn_error": "Social Security Number is required.",
+  "missing_username_error": "Username is required.",
+  "used_username_error": "This username already exists.",
+  "missing_password_error": "Password is required.",
+  "missing_confirm_password_error": "Password confirmation is required.",
+  "wrong_confirm_password_error": "Passwords did not match.",
+  "first_name_non-alphabetic_characters_error": "Only alphabetic characters are allowed in first name.",
+  "last_name_non-alphabetic_characters_error": "Only alphabetic characters are allowed in last name.",
+  "city_non-alphabetic_characters_error": "Only alphabetic characters are allowed in city.",
+  "state_non-alphabetic_characters_error": "Only alphabetic characters are allowed in state.",
+  "zip_code_non-alphabetic_characters_error": "Only numeric characters are allowed in zip code.",
+  "phone_number_non-alphabetic_characters_error": "Only numeric characters are allowed in phone number.",
+  "ssn_non-alphabetic_characters_error": "Only numeric characters are allowed in SSN."
+}
