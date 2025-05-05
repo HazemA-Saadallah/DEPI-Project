@@ -25,19 +25,7 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.register_page.register(this.vars);
         register_page.validate_successful_register_message(this.vars.get("username"));
         account_overview_page.verify_welcome_message(this.vars.get("first_name"), this.vars.get("last_name"));
     }
@@ -52,19 +40,7 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_username_error_message("used_username_error");
     }
@@ -80,19 +56,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                "",
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("first_name", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_first_name_error_message("missing_first_name_error");
     }
@@ -103,23 +68,12 @@ public class RegisterTest extends TestBase {
             Test Case ID: TC_Register_04
             Title: Validate That "First Name" has to contain only alphabetic character When registering a new customer""")
     public void TC_Register_04() {
-        Map<String, String> vars = TestBase.rand_vars();
+        this.vars = TestBase.rand_vars();
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name")+"1_-.",
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("first_name", this.vars.get("first_name")+"1_-.");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_first_name_error_message("first_name_non-alphabetic_character_error");
     }
@@ -134,19 +88,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                "",
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("last_name", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_last_name_error_message("missing_last_name_error");
     }
@@ -161,19 +104,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name")+"1_-.",
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("last_name", this.vars.get("last_name")+"1_-.");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_last_name_error_message("last_name_non-alphabetic_character_error");
     }
@@ -188,19 +120,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                "",
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("address", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_address_error_message("missing_address_error");
     }
@@ -215,19 +136,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                "",
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("city", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_city_error_message("missing_city_error");
     }
@@ -242,19 +152,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city")+"1_-.",
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("city", this.vars.get("city")+"1_-.");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_city_error_message("city_non-alphabetic_character_error");
     }
@@ -269,19 +168,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                "",
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("state", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_state_error_message("missing_state_error");
     }
@@ -296,18 +184,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state")+"1_-.",
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm"));
+        this.vars.put("state", this.vars.get("state")+"1_-.");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_state_error_message("state_non-alphabetic_character_error");
     }
@@ -322,19 +200,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                "",
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("zip_code", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_zip_code_error_message("missing_zip_code_error");
     }
@@ -349,19 +216,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-               this.vars.get("zip_code")+"a_-.",
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("zip_code", this.vars.get("zip_code")+"a_-.");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_zip_code_error_message("zip_code_non-alphabetic_character_error");
     }
@@ -376,19 +232,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-               "",
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("phone_number", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_phone_number_error_message("missing_phone_number_error");
     }
@@ -403,19 +248,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number")+"a_-.",
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("phone_number", this.vars.get("phone_number")+"a_-.");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_phone_number_error_message("phone_number_non-alphabetic_character_error");
     }
@@ -430,19 +264,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-               "",
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("ssn", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_ssn_error_message("missing_ssn_error");
     }
@@ -457,19 +280,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn")+"a_-.",
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("ssn", this.vars.get("ssn")+"a_-.");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_ssn_error_message("ssn_non-alphabetic_character_error");
     }
@@ -484,19 +296,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-               "",
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("username", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_username_error_message("missing_username_error");
     }
@@ -511,19 +312,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-               "",
-                this.vars.get("password_confirm")
-        );
+        this.vars.put("password", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_password_error_message("missing_password_error");
     }
@@ -538,19 +328,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-               ""
-        );
+        this.vars.put("password_confirm", "");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_password_confirm_error_message("missing_confirm_password_error");
     }
@@ -565,19 +344,8 @@ public class RegisterTest extends TestBase {
         this.register_page = new RegisterPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                vars.get("first_name"),
-                vars.get("last_name"),
-                vars.get("address"),
-                vars.get("city"),
-                vars.get("state"),
-                vars.get("zip_code"),
-                vars.get("phone_number"),
-                vars.get("ssn"),
-                vars.get("username"),
-                vars.get("password"),
-                vars.get("password")+"_InVaLiD"
-        );
+        this.vars.put("password_confirm", this.vars.get("password_confirm")+"_InVaLiD");
+        this.register_page.register(this.vars);
         register_page.validate_failed_register();
         register_page.validate_password_confirm_error_message("wrong_confirm_password_error");
     }

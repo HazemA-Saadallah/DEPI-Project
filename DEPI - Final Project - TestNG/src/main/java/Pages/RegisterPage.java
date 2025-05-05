@@ -79,6 +79,22 @@ public class RegisterPage {
         this.click_register_button();
     }
 
+    public void register(Map<String, String> data) {
+        this.register(
+            data.get("first_name"),
+            data.get("last_name"),
+            data.get("address"),
+            data.get("city"),
+            data.get("state"),
+            data.get("zip_code"),
+            data.get("phone_number"),
+            data.get("ssn"),
+            data.get("username"),
+            data.get("password"),
+            data.get("password_confirm")
+        );
+    }
+
     // Assertions
     public void validate_successful_register_message(String username) { Assert.assertEquals(this.driver.findElement(successful_register_message).getText(), "Welcome "+username+"\nYour account was created successfully. You are now logged in."); }
     public void validate_failed_register() { Assert.assertFalse(this.driver.findElement(successful_register_message).getText().contains("Welcome")); }

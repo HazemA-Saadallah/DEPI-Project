@@ -26,19 +26,7 @@ public class LogoutTest extends TestBase {
         this.login_page = new LoginPage(this.driver);
         this.account_overview_page = new AccountOverview(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
+        this.register_page.register(this.vars);
         this.account_overview_page.log_out();
         this.login_page.validate_successful_logout();
     }

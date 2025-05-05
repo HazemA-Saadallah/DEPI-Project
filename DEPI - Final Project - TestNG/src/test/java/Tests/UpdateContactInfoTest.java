@@ -31,20 +31,7 @@ public class UpdateContactInfoTest extends TestBase {
         this.vars = TestBase.rand_vars();
         this.register_page = new RegisterPage(this.driver);
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
-
+        this.register_page.register(this.vars);
         this.update_contact_info_page = new UpdateContactInfoPage(this.driver);
         this.update_contact_info_page.navigate();
         this.update_contact_info_page.validate_info(
@@ -68,22 +55,8 @@ public class UpdateContactInfoTest extends TestBase {
         this.vars = TestBase.rand_vars();
         this.register_page = new RegisterPage(this.driver);
         this.update_contact_info_page = new UpdateContactInfoPage(this.driver);
-
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
-
+        this.register_page.register(this.vars);
         this.update_contact_info_page.navigate();
         this.update_contact_info_page.update_first_name("NewFirstName");
         this.update_contact_info_page.validate_profile_update_message(List.of("first name"));
@@ -99,22 +72,8 @@ public class UpdateContactInfoTest extends TestBase {
         this.vars = TestBase.rand_vars();
         this.register_page = new RegisterPage(this.driver);
         this.update_contact_info_page = new UpdateContactInfoPage(this.driver);
-
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
-
+        this.register_page.register(this.vars);
         this.update_contact_info_page.navigate();
         this.update_contact_info_page.update_last_name("NewListName");
         this.update_contact_info_page.validate_profile_update_message(List.of("last name"));
@@ -130,22 +89,8 @@ public class UpdateContactInfoTest extends TestBase {
         this.vars = TestBase.rand_vars();
         this.register_page = new RegisterPage(this.driver);
         this.update_contact_info_page = new UpdateContactInfoPage(this.driver);
-
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
-
+        this.register_page.register(this.vars);
         this.update_contact_info_page.navigate();
         this.update_contact_info_page.update_address("NewAddress");
         this.update_contact_info_page.validate_profile_update_message(List.of("address"));
@@ -161,22 +106,8 @@ public class UpdateContactInfoTest extends TestBase {
         this.vars = TestBase.rand_vars();
         this.register_page = new RegisterPage(this.driver);
         this.update_contact_info_page = new UpdateContactInfoPage(this.driver);
-
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
-
+        this.register_page.register(this.vars);
         this.update_contact_info_page.navigate();
         this.update_contact_info_page.update_city("NewCity");
         this.update_contact_info_page.validate_profile_update_message(List.of("city"));
@@ -192,22 +123,8 @@ public class UpdateContactInfoTest extends TestBase {
         this.vars = TestBase.rand_vars();
         this.register_page = new RegisterPage(this.driver);
         this.update_contact_info_page = new UpdateContactInfoPage(this.driver);
-
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
-
+        this.register_page.register(this.vars);
         this.update_contact_info_page.navigate();
         this.update_contact_info_page.update_state("NewState");
         this.update_contact_info_page.validate_profile_update_message(List.of("state"));
@@ -223,22 +140,8 @@ public class UpdateContactInfoTest extends TestBase {
         this.vars = TestBase.rand_vars();
         this.register_page = new RegisterPage(this.driver);
         this.update_contact_info_page = new UpdateContactInfoPage(this.driver);
-
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
-
+        this.register_page.register(this.vars);
         this.update_contact_info_page.navigate();
         this.update_contact_info_page.update_zip_code("123123123");
         this.update_contact_info_page.validate_profile_update_message(List.of("zip code"));
@@ -254,22 +157,8 @@ public class UpdateContactInfoTest extends TestBase {
         this.vars = TestBase.rand_vars();
         this.register_page = new RegisterPage(this.driver);
         this.update_contact_info_page = new UpdateContactInfoPage(this.driver);
-
         this.register_page.navigate();
-        this.register_page.register(
-                this.vars.get("first_name"),
-                this.vars.get("last_name"),
-                this.vars.get("address"),
-                this.vars.get("city"),
-                this.vars.get("state"),
-                this.vars.get("zip_code"),
-                this.vars.get("phone_number"),
-                this.vars.get("ssn"),
-                this.vars.get("username"),
-                this.vars.get("password"),
-                this.vars.get("password_confirm")
-        );
-
+        this.register_page.register(this.vars);
         this.update_contact_info_page.navigate();
         this.update_contact_info_page.update_phone_number("123123123");
         this.update_contact_info_page.validate_profile_update_message(List.of("phone number"));
